@@ -1,4 +1,3 @@
-
 import { ArrowUpRight } from "lucide-react";
 
 const Footer = () => {
@@ -44,7 +43,7 @@ const Footer = () => {
                 <img 
                   src="/lovable-uploads/652f66cd-5f54-4aac-8ddf-ded0203c9571.png" 
                   alt="GAIA SARL U Logo" 
-                  className="h-12 w-auto"
+                  className="h-12 w-auto rounded-full object-cover" 
                 />
                 <span className="text-gaia-purple font-heading font-bold text-2xl">
                   GAIA<span className="text-gaia-pink">SARL U</span>
