@@ -69,6 +69,13 @@ export default {
 					indigo: '#635BFF',
 					light: '#F6F9FC',
 					gray: '#4F566B'
+				},
+				gaia: {
+					purple: '#8265B0',
+					pink: '#D769A9',
+					blue: '#65C9D8',
+					lightpink: '#F5D0E7',
+					lightblue: '#D0F0F5'
 				}
 			},
 			borderRadius: {

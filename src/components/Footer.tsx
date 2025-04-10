@@ -35,14 +35,19 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-tech-light pt-16 pb-8">
+    <footer className="bg-gradient-to-br from-gaia-lightblue to-gaia-lightpink pt-16 pb-8">
       <div className="container-custom">
         <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 pb-12 border-b border-gray-200">
           <div className="lg:col-span-2">
             <div className="space-y-6">
-              <a href="#" className="inline-block">
-                <span className="text-tech-blue font-heading font-bold text-2xl">
-                  GAIA<span className="text-tech-indigo">SARL U</span>
+              <a href="#" className="inline-flex items-center gap-3">
+                <img 
+                  src="/lovable-uploads/652f66cd-5f54-4aac-8ddf-ded0203c9571.png" 
+                  alt="GAIA SARL U Logo" 
+                  className="h-12 w-auto"
+                />
+                <span className="text-gaia-purple font-heading font-bold text-2xl">
+                  GAIA<span className="text-gaia-pink">SARL U</span>
                 </span>
               </a>
               <p className="text-tech-gray max-w-md">
@@ -66,13 +71,13 @@ const Footer = () => {
 
           {footerLinks.map((column, i) => (
             <div key={i}>
-              <h3 className="font-medium text-tech-blue mb-6">{column.title}</h3>
+              <h3 className="font-medium text-gaia-purple mb-6">{column.title}</h3>
               <ul className="space-y-4">
                 {column.links.map((link, j) => (
                   <li key={j}>
                     <a
                       href={link.href}
-                      className="text-tech-gray hover:text-tech-indigo transition-colors inline-flex items-center gap-1 group"
+                      className="text-tech-gray hover:text-gaia-pink transition-colors inline-flex items-center gap-1 group"
                     >
                       {link.name}
                       <ArrowUpRight className="h-3 w-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
@@ -89,10 +94,10 @@ const Footer = () => {
             © {new Date().getFullYear()} GAIA SARL U. Tous droits réservés.
           </p>
           <div className="flex gap-6">
-            <a href="#" className="text-tech-gray hover:text-tech-blue text-sm">
+            <a href="#" className="text-tech-gray hover:text-gaia-purple text-sm">
               Conditions d'utilisation
             </a>
-            <a href="#" className="text-tech-gray hover:text-tech-blue text-sm">
+            <a href="#" className="text-tech-gray hover:text-gaia-purple text-sm">
               Politique de confidentialité
             </a>
           </div>

@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -40,9 +41,14 @@ const Navbar = () => {
       )}
     >
       <div className="container-custom flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2">
-          <span className="text-tech-blue font-heading font-bold text-2xl">
-            GAIA<span className="text-tech-indigo">SARL U</span>
+        <a href="#" className="flex items-center gap-3">
+          <img 
+            src="/lovable-uploads/652f66cd-5f54-4aac-8ddf-ded0203c9571.png" 
+            alt="GAIA SARL U Logo" 
+            className="h-12 w-auto"
+          />
+          <span className="text-gaia-purple font-heading font-bold text-2xl">
+            GAIA<span className="text-gaia-pink">SARL U</span>
           </span>
         </a>
 
@@ -53,7 +59,7 @@ const Navbar = () => {
               <li key={link.name}>
                 <a
                   href={link.href}
-                  className="text-tech-gray hover:text-tech-blue font-medium transition-colors"
+                  className="text-gaia-purple hover:text-gaia-pink font-medium transition-colors"
                 >
                   {link.name}
                 </a>
@@ -65,7 +71,7 @@ const Navbar = () => {
 
         {/* Mobile Menu Toggle */}
         <button
-          className="md:hidden text-tech-blue p-2"
+          className="md:hidden text-gaia-purple p-2"
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
@@ -81,7 +87,7 @@ const Navbar = () => {
               <li key={link.name} className="px-6 py-3">
                 <a
                   href={link.href}
-                  className="text-tech-gray hover:text-tech-blue font-medium transition-colors"
+                  className="text-gaia-purple hover:text-gaia-pink font-medium transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.name}

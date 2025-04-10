@@ -30,7 +30,7 @@ const ServicesSection = () => {
     <section id="services" className="section bg-white">
       <div className="container-custom">
         <div className="max-w-xl mx-auto text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-tech-blue mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-gaia-purple mb-4">
             Nos Services
           </h2>
           <p className="text-tech-gray">
@@ -43,10 +43,10 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
               <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-tech-light flex items-center justify-center mb-4">
-                  <service.icon className="h-6 w-6 text-tech-indigo" />
+                <div className="h-12 w-12 rounded-lg bg-gaia-lightblue flex items-center justify-center mb-4">
+                  <service.icon className="h-6 w-6 text-gaia-purple" />
                 </div>
-                <CardTitle className="text-xl text-tech-blue">{service.title}</CardTitle>
+                <CardTitle className="text-xl text-gaia-purple">{service.title}</CardTitle>
               </CardHeader>
               <CardContent>
                 <CardDescription className="text-tech-gray">
