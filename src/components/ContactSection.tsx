@@ -3,17 +3,14 @@ import { Phone, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/hooks/use-toast";
+import { toast } from "sonner";
 
 const ContactSection = () => {
-  const { toast } = useToast();
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Dans une vraie application, on enverrait les données du formulaire à un backend
-    toast({
-      title: "Message envoyé !",
-      description: "Nous vous répondrons dans les plus brefs délais.",
+    toast.success("Message envoyé !", {
+      description: "Nous vous répondrons dans les plus brefs délais."
     });
   };
 
