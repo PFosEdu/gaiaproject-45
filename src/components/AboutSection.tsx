@@ -2,12 +2,12 @@
 import { CheckCircle } from "lucide-react";
 
 const advantages = [
-  "Une équipe d'experts certifiés",
-  "Plus de 10 ans d'expérience",
-  "Des solutions sur mesure adaptées à vos besoins",
+  "Une équipe énergétique et interdisciplinaire",
+  "Des compétences diverses et complémentaires",
+  "Solutions concrètes à vos problématiques",
   "Un accompagnement personnalisé",
-  "Service client réactif 7j/7",
-  "Garantie de satisfaction"
+  "Prestations digitales de qualité",
+  "Collaborateurs motivés et professionnels"
 ];
 
 const AboutSection = () => {
@@ -17,12 +17,13 @@ const AboutSection = () => {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 order-2 md:order-1">
             <h2 className="text-3xl md:text-4xl font-bold text-tech-blue">
-              Votre partenaire technologique de confiance
+              À propos de GAIA Sarl U
             </h2>
             <p className="text-tech-gray">
-              Depuis 2010, TechSolutions accompagne les entreprises dans leur transformation numérique. 
-              Notre mission : vous fournir des solutions informatiques innovantes et fiables pour 
-              vous aider à relever les défis du monde digital.
+              GAIA Sarl U est une entreprise d'informatique interdisciplinaire ayant pour but d'apporter des solutions concrètes aux problématiques de ses clients. Grâce à une équipe énergétique, aux diverses compétences et venant de différents horizons, nous tritons jour après jour des problématiques relatives à la santé, à l'éducation, à la culture et à l'information.
+            </p>
+            <p className="text-tech-gray">
+              Notre spécialisation se fait dans l'informatique et nous offrons des prestations digitales aux entreprises camerounaises et étrangères. Nos principaux clients sont de grandes structures. Il est primordial pour nous d'être accompagné par des collaborateurs motivés et professionnels.
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {advantages.map((advantage, index) => (
@@ -45,7 +46,7 @@ const AboutSection = () => {
                 <div className="aspect-square w-full bg-white rounded-lg shadow-lg overflow-hidden">
                   <img
                     src="https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&q=80&w=1200"
-                    alt="Équipe TechSolutions"
+                    alt="Équipe GAIA Sarl U"
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -66,7 +67,7 @@ const AboutSection = () => {
                 <div className="aspect-square w-full bg-white rounded-lg shadow-lg overflow-hidden">
                   <img
                     src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1200"
-                    alt="Services TechSolutions"
+                    alt="Services GAIA Sarl U"
                     className="w-full h-full object-cover"
                   />
                 </div>
