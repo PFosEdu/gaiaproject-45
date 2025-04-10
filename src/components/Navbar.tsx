@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -43,7 +42,7 @@ const Navbar = () => {
       <div className="container-custom flex items-center justify-between">
         <a href="#" className="flex items-center gap-2">
           <span className="text-tech-blue font-heading font-bold text-2xl">
-            Tech<span className="text-tech-indigo">Solutions</span>
+            GAIA<span className="text-tech-indigo">SARL U</span>
           </span>
         </a>
 

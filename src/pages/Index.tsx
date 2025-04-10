@@ -12,10 +12,10 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>TechSolutions - Services informatiques professionnels</title>
+        <title>GAIA SARL U - Services informatiques professionnels</title>
         <meta 
           name="description" 
-          content="TechSolutions offre des services informatiques de qualité pour les entreprises: développement logiciel, cybersécurité, infrastructure IT et solutions cloud." 
+          content="GAIA SARL U offre des services informatiques de qualité pour les entreprises: développement logiciel, cybersécurité, infrastructure IT et solutions cloud." 
         />
       </Helmet>
       <div className="min-h-screen flex flex-col">

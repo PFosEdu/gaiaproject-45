@@ -42,7 +42,7 @@ const Footer = () => {
             <div className="space-y-6">
               <a href="#" className="inline-block">
                 <span className="text-tech-blue font-heading font-bold text-2xl">
-                  Tech<span className="text-tech-indigo">Solutions</span>
+                  GAIA<span className="text-tech-indigo">SARL U</span>
                 </span>
               </a>
               <p className="text-tech-gray max-w-md">
@@ -86,7 +86,7 @@ const Footer = () => {
 
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-tech-gray text-sm">
-            © {new Date().getFullYear()} TechSolutions. Tous droits réservés.
+            © {new Date().getFullYear()} GAIA SARL U. Tous droits réservés.
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-tech-gray hover:text-tech-blue text-sm">
