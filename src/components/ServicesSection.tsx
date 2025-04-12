@@ -1,6 +1,8 @@
 
-import { Code, Shield, Database, Cloud } from "lucide-react";
+import { Code, Shield, Database, Cloud, ArrowRight } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 const services = [
   {
@@ -26,6 +28,13 @@ const services = [
 ];
 
 const ServicesSection = () => {
+  const handleContactClick = () => {
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="services" className="section bg-white">
       <div className="container-custom">
@@ -41,19 +50,36 @@ const ServicesSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (
-            <Card key={index} className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-              <CardHeader className="pb-4">
-                <div className="h-12 w-12 rounded-lg bg-gaia-lightblue flex items-center justify-center mb-4">
-                  <service.icon className="h-6 w-6 text-gaia-purple" />
+            <Dialog key={index}>
+              <DialogTrigger asChild>
+                <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow cursor-pointer">
+                  <CardHeader className="pb-4">
+                    <div className="h-12 w-12 rounded-lg bg-gaia-lightblue flex items-center justify-center mb-4">
+                      <service.icon className="h-6 w-6 text-gaia-purple" />
+                    </div>
+                    <CardTitle className="text-xl text-gaia-purple">{service.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <CardDescription className="text-tech-gray">
+                      {service.description}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              </DialogTrigger>
+              <DialogContent>
+                <DialogHeader>
+                  <DialogTitle>{service.title}</DialogTitle>
+                </DialogHeader>
+                <div className="space-y-4">
+                  <p className="text-tech-gray">{service.description}</p>
+                  <p className="text-tech-gray">
+                    Nous proposons des solutions adaptées à votre entreprise et à votre secteur d'activité.
+                    Contactez-nous pour en savoir plus sur nos offres.
+                  </p>
+                  <Button className="w-full" onClick={handleContactClick}>Nous contacter</Button>
                 </div>
-                <CardTitle className="text-xl text-gaia-purple">{service.title}</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-tech-gray">
-                  {service.description}
-                </CardDescription>
-              </CardContent>
-            </Card>
+              </DialogContent>
+            </Dialog>
           ))}
         </div>
 
@@ -61,9 +87,9 @@ const ServicesSection = () => {
           <p className="text-tech-gray mb-6">
             Vous ne trouvez pas ce que vous recherchez ? Nous proposons également des solutions personnalisées.
           </p>
-          <button className="btn-secondary">
+          <Button className="btn-secondary" onClick={handleContactClick}>
             Découvrir toutes nos offres
-          </button>
+          </Button>
         </div>
       </div>
     </section>

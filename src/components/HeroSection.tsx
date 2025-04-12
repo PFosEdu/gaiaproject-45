@@ -1,7 +1,27 @@
 
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { useState } from "react";
+
 const HeroSection = () => {
+  const navigate = useNavigate();
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const handleServicesClick = () => {
+    // Naviguer vers la section des services
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleAppointmentClick = () => {
+    // Ouvrir la boîte de dialogue pour prendre rendez-vous
+    setIsDialogOpen(true);
+  };
+
   return <section id="home" className="pt-28 pb-20 md:pt-40 md:pb-32 bg-gradient-to-br from-gaia-lightblue via-white to-gaia-lightpink">
       <div className="container-custom">
         <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -14,11 +34,33 @@ const HeroSection = () => {
               votre transformation numérique et booster votre croissance.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button className="btn-primary">
+              <Button className="btn-primary" onClick={handleServicesClick}>
                 Découvrir nos services
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
-              <Button className="btn-secondary">Prendre rendez-vous</Button>
+              <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                <DialogTrigger asChild>
+                  <Button className="btn-secondary" onClick={handleAppointmentClick}>
+                    Prendre rendez-vous
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-md">
+                  <DialogHeader>
+                    <DialogTitle>Prendre rendez-vous</DialogTitle>
+                  </DialogHeader>
+                  <div className="grid gap-4 py-4">
+                    <p className="text-tech-gray">
+                      Pour prendre rendez-vous, veuillez nous contacter par téléphone au 
+                      <a href="tel:+237690116809" className="text-gaia-purple font-medium ml-1">690 116 809</a> ou
+                      <a href="tel:+237691158251" className="text-gaia-purple font-medium ml-1">691 158 251</a>,
+                      ou utilisez notre <a href="#contact" onClick={() => {
+                        setIsDialogOpen(false);
+                        document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                      }} className="text-gaia-purple font-medium">formulaire de contact</a>.
+                    </p>
+                  </div>
+                </DialogContent>
+              </Dialog>
             </div>
             <div className="pt-4">
               <p className="text-sm text-tech-gray/80 flex items-center gap-4">
@@ -43,7 +85,7 @@ const HeroSection = () => {
                   <p className="text-sm text-tech-gray/80">Nos clients constatent</p>
                   <p className="text-xl font-bold text-gaia-purple">+40% d'efficacité</p>
                 </div>
-                <div className="bg-gaia-lightblue p-2 rounded-full">
+                <div className="bg-gaia-lightblue p-2 rounded-full cursor-pointer" onClick={handleServicesClick}>
                   <ArrowRight className="h-6 w-6 text-gaia-purple" />
                 </div>
               </div>

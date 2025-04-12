@@ -1,4 +1,5 @@
 
+import { useState } from "react";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -6,12 +7,43 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 
 const ContactSection = () => {
-  const handleSubmit = (e: React.FormEvent) => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: ""
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Dans une vraie application, on enverrait les données du formulaire à un backend
-    toast.success("Message envoyé !", {
-      description: "Nous vous répondrons dans les plus brefs délais."
-    });
+    setIsSubmitting(true);
+    
+    // Simuler un temps de chargement
+    setTimeout(() => {
+      // Dans une vraie application, on enverrait les données du formulaire à un backend
+      toast.success("Message envoyé !", {
+        description: "Nous vous répondrons dans les plus brefs délais."
+      });
+      
+      // Réinitialiser le formulaire
+      setFormData({
+        name: "",
+        email: "",
+        subject: "",
+        message: ""
+      });
+      
+      setIsSubmitting(false);
+    }, 1000);
   };
 
   const contactInfo = [
@@ -25,7 +57,8 @@ const ContactSection = () => {
       icon: MapPin,
       title: "Localisation",
       value: "Bastos - Yaoundé, BP 483 Yaoundé",
-      href: "https://maps.google.com",
+      href: "https://maps.google.com/?q=Bastos+Yaoundé+Cameroun",
+      isExternal: true,
     },
     {
       icon: Clock,
@@ -63,6 +96,9 @@ const ContactSection = () => {
                     key={index}
                     href={item.href}
                     className="flex items-start gap-4 hover:opacity-80 transition-opacity"
+                    target={item.isExternal ? "_blank" : undefined}
+                    rel={item.isExternal ? "noopener noreferrer" : undefined}
+                    onClick={item.href === "#" ? (e) => e.preventDefault() : undefined}
                   >
                     <div className="h-10 w-10 rounded-lg bg-white/10 flex items-center justify-center shrink-0">
                       <item.icon className="h-5 w-5" />
@@ -89,6 +125,8 @@ const ContactSection = () => {
                     placeholder="Votre nom"
                     className="bg-white/5 border-white/10 text-white placeholder:text-white/40"
                     required
+                    value={formData.name}
+                    onChange={handleChange}
                   />
                 </div>
                 <div className="space-y-2">
@@ -101,6 +139,8 @@ const ContactSection = () => {
                     placeholder="exemple@entreprise.com"
                     className="bg-white/5 border-white/10 text-white placeholder:text-white/40"
                     required
+                    value={formData.email}
+                    onChange={handleChange}
                   />
                 </div>
               </div>
@@ -113,6 +153,8 @@ const ContactSection = () => {
                   placeholder="Objet de votre message"
                   className="bg-white/5 border-white/10 text-white placeholder:text-white/40"
                   required
+                  value={formData.subject}
+                  onChange={handleChange}
                 />
               </div>
               <div className="space-y-2">
@@ -124,13 +166,16 @@ const ContactSection = () => {
                   placeholder="Décrivez votre projet ou votre demande..."
                   className="bg-white/5 border-white/10 text-white placeholder:text-white/40 min-h-[150px]"
                   required
+                  value={formData.message}
+                  onChange={handleChange}
                 />
               </div>
               <Button
                 type="submit"
                 className="w-full bg-tech-cyan hover:bg-tech-cyan/90 text-tech-blue font-medium"
+                disabled={isSubmitting}
               >
-                Envoyer le message
+                {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
               </Button>
             </form>
           </div>

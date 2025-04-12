@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -24,12 +25,33 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
+  const scrollToSection = (id: string) => {
+    setIsOpen(false);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const scrollToTop = () => {
+    setIsOpen(false);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleContactButtonClick = () => {
+    setIsOpen(false);
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const navLinks = [
-    { name: "Accueil", href: "#home" },
-    { name: "Services", href: "#services" },
-    { name: "À propos", href: "#about" },
-    { name: "Témoignages", href: "#testimonials" },
-    { name: "Contact", href: "#contact" },
+    { name: "Accueil", href: "#home", action: () => scrollToTop() },
+    { name: "Services", href: "#services", action: () => scrollToSection('services') },
+    { name: "À propos", href: "#about", action: () => scrollToSection('about') },
+    { name: "Témoignages", href: "#testimonials", action: () => scrollToSection('testimonials') },
+    { name: "Contact", href: "#contact", action: () => scrollToSection('contact') },
   ];
 
   return (
@@ -40,7 +62,14 @@ const Navbar = () => {
       )}
     >
       <div className="container-custom flex items-center justify-between">
-        <a href="#" className="flex items-center gap-3">
+        <a 
+          href="#" 
+          className="flex items-center gap-3" 
+          onClick={(e) => {
+            e.preventDefault();
+            scrollToTop();
+          }}
+        >
           <img 
             src="/lovable-uploads/652f66cd-5f54-4aac-8ddf-ded0203c9571.png" 
             alt="GAIA SARL U Logo" 
@@ -59,13 +88,17 @@ const Navbar = () => {
                 <a
                   href={link.href}
                   className="text-gaia-purple hover:text-gaia-pink font-medium transition-colors"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    link.action();
+                  }}
                 >
                   {link.name}
                 </a>
               </li>
             ))}
           </ul>
-          <Button className="btn-primary">Contactez-nous</Button>
+          <Button className="btn-primary" onClick={handleContactButtonClick}>Contactez-nous</Button>
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -87,14 +120,17 @@ const Navbar = () => {
                 <a
                   href={link.href}
                   className="text-gaia-purple hover:text-gaia-pink font-medium transition-colors"
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    link.action();
+                  }}
                 >
                   {link.name}
                 </a>
               </li>
             ))}
             <li className="px-6 py-4">
-              <Button className="btn-primary w-full">Contactez-nous</Button>
+              <Button className="btn-primary w-full" onClick={handleContactButtonClick}>Contactez-nous</Button>
             </li>
           </ul>
         </div>
