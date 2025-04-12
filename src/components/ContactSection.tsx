@@ -1,5 +1,5 @@
 
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -18,20 +18,20 @@ const ContactSection = () => {
     {
       icon: Phone,
       title: "Téléphone",
-      value: "+33 1 23 45 67 89",
-      href: "tel:+33123456789",
-    },
-    {
-      icon: Mail,
-      title: "Email",
-      value: "contact@techsolutions.fr",
-      href: "mailto:contact@techsolutions.fr",
+      value: "690116809 / 691158251",
+      href: "tel:+237690116809",
     },
     {
       icon: MapPin,
-      title: "Adresse",
-      value: "15 Rue de l'Innovation, 75001 Paris",
+      title: "Localisation",
+      value: "Bastos - Yaoundé, BP 483 Yaoundé",
       href: "https://maps.google.com",
+    },
+    {
+      icon: Clock,
+      title: "Horaires",
+      value: "Lun-Ven: 08h-17h, Sam: 09h-12h",
+      href: "#",
     },
   ];
 
@@ -51,6 +51,7 @@ const ContactSection = () => {
         <div className="grid lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2">
             <div className="space-y-8">
+              <h3 className="text-xl font-bold">Informations pratiques</h3>
               <p className="text-white/80">
                 Discutons de vos besoins informatiques et voyons comment nous pouvons vous aider 
                 à atteindre vos objectifs. Remplissez le formulaire ou utilisez nos coordonnées directes.
