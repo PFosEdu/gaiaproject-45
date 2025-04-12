@@ -1,10 +1,7 @@
-
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
 const HeroSection = () => {
-  return (
-    <section id="home" className="pt-28 pb-20 md:pt-40 md:pb-32 bg-gradient-to-br from-gaia-lightblue via-white to-gaia-lightpink">
+  return <section id="home" className="pt-28 pb-20 md:pt-40 md:pb-32 bg-gradient-to-br from-gaia-lightblue via-white to-gaia-lightpink">
       <div className="container-custom">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-8 animate-fade-up">
@@ -25,14 +22,9 @@ const HeroSection = () => {
             <div className="pt-4">
               <p className="text-sm text-tech-gray/80 flex items-center gap-4">
                 <span className="flex -space-x-2">
-                  {[1, 2, 3, 4].map((i) => (
-                    <span
-                      key={i}
-                      className="inline-block h-8 w-8 rounded-full border-2 border-white bg-gray-200"
-                    />
-                  ))}
+                  {[1, 2, 3, 4].map(i => <span key={i} className="inline-block h-8 w-8 rounded-full border-2 border-white bg-gray-200" />)}
                 </span>
-                <span>
+                <span className="Rejoint par 200+ entreprises dans le monde">
                   Rejoint par <b>200+</b> entreprises en France
                 </span>
               </p>
@@ -43,11 +35,7 @@ const HeroSection = () => {
             <div className="absolute -bottom-10 -left-10 h-64 w-64 bg-gaia-pink/30 rounded-full blur-3xl"></div>
             <div className="relative bg-white p-6 rounded-2xl shadow-xl">
               <div className="aspect-[4/3] w-full bg-gray-200 rounded-lg overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2426&h=1728"
-                  alt="Solutions informatiques modernes"
-                  className="w-full h-full object-cover"
-                />
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=2426&h=1728" alt="Solutions informatiques modernes" className="w-full h-full object-cover" />
               </div>
               <div className="flex justify-between items-center mt-4">
                 <div className="space-y-1">
@@ -62,8 +50,6 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
