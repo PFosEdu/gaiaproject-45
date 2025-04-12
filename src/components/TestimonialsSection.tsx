@@ -8,21 +8,21 @@ const testimonials = [
     author: "Marie Dupont",
     role: "Directrice Générale, ModernShop",
     rating: 5,
-    image: "https://randomuser.me/api/portraits/women/68.jpg"
+    image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
   },
   {
     content: "Le développement de notre application mobile a été géré de main de maître. Professionnalisme, réactivité et expertise technique, je recommande vivement !",
     author: "Thomas Laurent",
     role: "CTO, FutureTech",
     rating: 5,
-    image: "https://randomuser.me/api/portraits/men/32.jpg"
+    image: "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
   },
   {
     content: "La migration de nos services vers le cloud s'est déroulée sans aucun problème grâce à l'expertise de GAIA SARL U. Un partenaire de confiance pour notre entreprise.",
     author: "Sophie Martin",
     role: "Responsable IT, GlobalService",
     rating: 4,
-    image: "https://randomuser.me/api/portraits/women/42.jpg"
+    image: "https://images.unsplash.com/photo-1589156280159-27698a70f29e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
   },
 ];
 
