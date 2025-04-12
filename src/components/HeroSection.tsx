@@ -1,3 +1,4 @@
+
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 const HeroSection = () => {
@@ -24,8 +25,8 @@ const HeroSection = () => {
                 <span className="flex -space-x-2">
                   {[1, 2, 3, 4].map(i => <span key={i} className="inline-block h-8 w-8 rounded-full border-2 border-white bg-gray-200" />)}
                 </span>
-                <span className="Rejoint par 200+ entreprises dans le monde">
-                  Rejoint par <b>200+</b> entreprises en France
+                <span>
+                  Rejoint par <b>200+</b> entreprises dans le monde
                 </span>
               </p>
             </div>
