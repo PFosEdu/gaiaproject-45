@@ -1,135 +1,46 @@
-
-import { ArrowUpRight } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { ArrowUpRight, Linkedin, Twitter, Facebook, Instagram } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-
-  const scrollToSection = (id: string, e: React.MouseEvent) => {
-    e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  const scrollToTop = (e: React.MouseEvent) => {
-    e.preventDefault();
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  const scrollToSection = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
   const footerLinks = [
-    {
-      title: "Services",
-      links: [
-        { name: "Développement Logiciel", href: "#services", action: (e: React.MouseEvent) => scrollToSection('services', e) },
-        { name: "Cybersécurité", href: "#services", action: (e: React.MouseEvent) => scrollToSection('services', e) },
-        { name: "Infrastructure IT", href: "#services", action: (e: React.MouseEvent) => scrollToSection('services', e) },
-        { name: "Solutions Cloud", href: "#services", action: (e: React.MouseEvent) => scrollToSection('services', e) },
-        { name: "Conseil", href: "#contact", action: (e: React.MouseEvent) => scrollToSection('contact', e) },
-      ],
-    },
-    {
-      title: "Entreprise",
-      links: [
-        { name: "À propos", href: "#about", action: (e: React.MouseEvent) => scrollToSection('about', e) },
-        { name: "Équipe", href: "#about", action: (e: React.MouseEvent) => scrollToSection('about', e) },
-        { name: "Carrières", href: "#contact", action: (e: React.MouseEvent) => scrollToSection('contact', e) },
-        { name: "Blog", href: "#", action: (e: React.MouseEvent) => e.preventDefault() },
-        { name: "Partenaires", href: "#about", action: (e: React.MouseEvent) => scrollToSection('about', e) },
-      ],
-    },
-    {
-      title: "Légal",
-      links: [
-        { name: "Mentions légales", href: "#", action: (e: React.MouseEvent) => e.preventDefault() },
-        { name: "Politique de confidentialité", href: "#", action: (e: React.MouseEvent) => e.preventDefault() },
-        { name: "Conditions d'utilisation", href: "#", action: (e: React.MouseEvent) => e.preventDefault() },
-        { name: "Cookies", href: "#", action: (e: React.MouseEvent) => e.preventDefault() },
-      ],
-    },
-  ];
-
-  const socialMediaIcons = [
-    { name: "Facebook", href: "#", icon: "f" },
-    { name: "Twitter", href: "#", icon: "t" },
-    { name: "LinkedIn", href: "#", icon: "in" },
-    { name: "Instagram", href: "#", icon: "ig" },
+    { title: "Solutions", links: [{ name: "Éducation", href: "solutions" }, { name: "Cloud", href: "solutions" }, { name: "Agriculture", href: "solutions" }, { name: "Data & IA", href: "solutions" }] },
+    { title: "Entreprise", links: [{ name: "Pourquoi GAIA", href: "why-gaia" }, { name: "Équipe", href: "team" }, { name: "Comptoir des Arts", href: "comptoir" }, { name: "Contact", href: "contact" }] },
+    { title: "Légal", links: [{ name: "Mentions légales", href: "#" }, { name: "Confidentialité", href: "#" }, { name: "CGU", href: "#" }] },
   ];
 
   return (
-    <footer className="bg-gradient-to-br from-gaia-lightblue to-gaia-lightpink pt-16 pb-8">
-      <div className="container-custom">
-        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 pb-12 border-b border-gray-200">
+    <footer className="relative pt-20 pb-8 border-t border-border/50">
+      <div className="absolute inset-0 bg-gradient-to-t from-muted/20 to-transparent" />
+      <div className="container-custom relative z-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12 pb-12 border-b border-border/50">
           <div className="lg:col-span-2">
-            <div className="space-y-6">
-              <a href="#" 
-                className="inline-flex items-center gap-3"
-                onClick={scrollToTop}
-              >
-                <img 
-                  src="/lovable-uploads/652f66cd-5f54-4aac-8ddf-ded0203c9571.png" 
-                  alt="GAIA SARL U Logo" 
-                  className="h-12 w-auto rounded-full object-cover" 
-                />
-                <span className="text-gaia-purple font-heading font-bold text-2xl">
-                  GAIA<span className="text-gaia-pink">SARL U</span>
-                </span>
-              </a>
-              <p className="text-tech-gray max-w-md">
-                Votre partenaire technologique de confiance. Des solutions 
-                informatiques innovantes pour propulser votre entreprise 
-                vers le succès.
-              </p>
-              <div className="flex gap-4">
-                {socialMediaIcons.map((social, i) => (
-                  <a
-                    key={i}
-                    href={social.href}
-                    aria-label={social.name}
-                    className="h-10 w-10 rounded-full bg-white flex items-center justify-center shadow-sm hover:shadow-md transition-shadow font-medium text-gaia-purple"
-                    onClick={(e) => e.preventDefault()}
-                  >
-                    <span>{social.icon}</span>
-                  </a>
-                ))}
-              </div>
+            <a href="#home" onClick={(e) => { e.preventDefault(); scrollToSection('home'); }} className="inline-flex items-center gap-3 mb-6">
+              <img src="/lovable-uploads/652f66cd-5f54-4aac-8ddf-ded0203c9571.png" alt="GAIA" className="h-12 w-12 rounded-xl ring-2 ring-primary/20" />
+              <div><span className="text-foreground font-heading font-bold text-xl">GAIA<span className="text-primary">.</span></span><span className="block text-[10px] text-muted-foreground tracking-widest uppercase">SARL U</span></div>
+            </a>
+            <p className="text-muted-foreground max-w-md mb-6">Leader technologique camerounais. Nous construisons des systèmes numériques qui transforment l'éducation, les organisations et les territoires.</p>
+            <div className="flex gap-3">
+              {[Linkedin, Twitter, Facebook, Instagram].map((Icon, i) => (
+                <a key={i} href="#" className="w-10 h-10 rounded-lg bg-muted/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-all"><Icon className="w-5 h-5" /></a>
+              ))}
             </div>
           </div>
-
-          {footerLinks.map((column, i) => (
-            <div key={i}>
-              <h3 className="font-medium text-gaia-purple mb-6">{column.title}</h3>
-              <ul className="space-y-4">
-                {column.links.map((link, j) => (
-                  <li key={j}>
-                    <a
-                      href={link.href}
-                      className="text-tech-gray hover:text-gaia-pink transition-colors inline-flex items-center gap-1 group"
-                      onClick={link.action}
-                    >
-                      {link.name}
-                      <ArrowUpRight className="h-3 w-3 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
-                    </a>
-                  </li>
+          {footerLinks.map((col) => (
+            <div key={col.title}>
+              <h3 className="font-semibold text-foreground mb-4">{col.title}</h3>
+              <ul className="space-y-3">
+                {col.links.map((link) => (
+                  <li key={link.name}><a href={`#${link.href}`} onClick={(e) => { e.preventDefault(); scrollToSection(link.href); }} className="text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1 group text-sm">{link.name}<ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity" /></a></li>
                 ))}
               </ul>
             </div>
           ))}
         </div>
-
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-tech-gray text-sm">
-            © {currentYear} GAIA SARL U. Tous droits réservés.
-          </p>
-          <div className="flex gap-6">
-            <a href="#" className="text-tech-gray hover:text-gaia-purple text-sm" onClick={(e) => e.preventDefault()}>
-              Conditions d'utilisation
-            </a>
-            <a href="#" className="text-tech-gray hover:text-gaia-purple text-sm" onClick={(e) => e.preventDefault()}>
-              Politique de confidentialité
-            </a>
-          </div>
+          <p className="text-muted-foreground text-sm">© {currentYear} GAIA SARL U. Tous droits réservés.</p>
+          <p className="text-xs text-muted-foreground">Douala, Cameroun • Leader en transformation numérique</p>
         </div>
       </div>
     </footer>
