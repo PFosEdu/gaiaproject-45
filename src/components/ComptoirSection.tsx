@@ -1,4 +1,4 @@
-import { Palette, Music, Users, Calendar, Sparkles, ArrowRight } from "lucide-react";
+import { Palette, Music, Users, Calendar, Sparkles, ArrowRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const ComptoirSection = () => {
@@ -36,9 +36,11 @@ const ComptoirSection = () => {
                 </div>
               ))}
             </div>
-            <Button className="btn-secondary group" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>
-              Découvrir le Comptoir <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <a href="https://web.facebook.com/AuComptoirdesArts/" target="_blank" rel="noopener noreferrer">
+              <Button className="btn-secondary group">
+                Découvrir le Comptoir <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </a>
           </div>
 
           <div className="glass-card p-8 border-secondary/20">
