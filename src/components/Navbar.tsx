@@ -39,6 +39,7 @@ const Navbar = () => {
     { name: "Accueil", href: "home" },
     { name: "Pourquoi GAIA", href: "why-gaia" },
     { name: "Solutions", href: "solutions" },
+    { name: "Projets Phares", href: "flagship" },
     { name: "Expertise", href: "expertise" },
     { name: "Études de cas", href: "cases" },
     { name: "Équipe", href: "team" },
