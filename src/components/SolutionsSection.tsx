@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { GraduationCap, Code, Wheat, Brain, Briefcase, ArrowRight, MessageSquare, BarChart3, Users, MapPin, Shield, Cloud, Palette, Cog, Target, Layers } from "lucide-react";
+import { GraduationCap, Code, Wheat, Brain, Briefcase, ArrowRight, MessageSquare, BarChart3, Users, MapPin, Shield, Cloud, Palette, Cog, Target, Layers, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
@@ -16,7 +16,11 @@ const SolutionsSection = () => {
         { icon: MessageSquare, text: "Campagnes WhatsApp massives" },
         { icon: BarChart3, text: "Scoring automatique & BI éducative" },
       ],
-      stats: { value: "220K+", label: "Utilisateurs actifs" }
+      stats: { value: "220K+", label: "Utilisateurs actifs" },
+      links: [
+        { label: "PFOS Educareers", url: "https://educareers.pfos.education/" },
+        { label: "CRM PFOS", url: "https://crm.pfos.education" },
+      ]
     },
     {
       icon: Code, title: "Ingénierie Logicielle & Cloud", shortTitle: "Ingénierie",
@@ -27,7 +31,10 @@ const SolutionsSection = () => {
         { icon: Palette, text: "UX/UI moderne et responsive" },
         { icon: BarChart3, text: "Dashboards de pilotage" },
       ],
-      stats: { value: "10+", label: "Modules cloud actifs" }
+      stats: { value: "10+", label: "Modules cloud actifs" },
+      links: [
+        { label: "Canopé", url: "https://canopyx.gaiasarl.com/" },
+      ]
     },
     {
       icon: Wheat, title: "Systèmes de Subvention Agricole", shortTitle: "Agriculture",
@@ -38,7 +45,8 @@ const SolutionsSection = () => {
         { icon: Shield, text: "Système e-bons sécurisé" },
         { icon: Layers, text: "Architecture souveraine" },
       ],
-      stats: { value: "National", label: "Échelle de déploiement" }
+      stats: { value: "National", label: "Échelle de déploiement" },
+      links: []
     },
     {
       icon: Brain, title: "Data Intelligence & Automatisation", shortTitle: "Data & IA",
@@ -49,7 +57,8 @@ const SolutionsSection = () => {
         { icon: Cog, text: "Pipelines IA automatisés" },
         { icon: BarChart3, text: "Analyse prédictive" },
       ],
-      stats: { value: "TB+", label: "Données traitées" }
+      stats: { value: "TB+", label: "Données traitées" },
+      links: []
     },
     {
       icon: Briefcase, title: "Stratégie Numérique & Conseil", shortTitle: "Conseil",
@@ -60,7 +69,8 @@ const SolutionsSection = () => {
         { icon: Palette, text: "Stratégie UX/produit" },
         { icon: Users, text: "Formation équipes locales" },
       ],
-      stats: { value: "100%", label: "Sur mesure" }
+      stats: { value: "100%", label: "Sur mesure" },
+      links: []
     }
   ];
 
@@ -94,10 +104,20 @@ const SolutionsSection = () => {
               </div>
               <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">{activeSolution.title}</h3>
               <p className="text-muted-foreground mb-8">{activeSolution.description}</p>
-              <div className="inline-flex items-center gap-4 px-6 py-4 rounded-xl bg-primary/10 border border-primary/20">
+              <div className="inline-flex items-center gap-4 px-6 py-4 rounded-xl bg-primary/10 border border-primary/20 mb-6">
                 <div className="text-3xl font-bold text-primary">{activeSolution.stats.value}</div>
                 <div className="text-sm text-muted-foreground">{activeSolution.stats.label}</div>
               </div>
+              {activeSolution.links && activeSolution.links.length > 0 && (
+                <div className="flex flex-wrap gap-3">
+                  {activeSolution.links.map((link, index) => (
+                    <a key={index} href={link.url} target="_blank" rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:bg-primary/90 transition-colors">
+                      {link.label} <ExternalLink className="w-4 h-4" />
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
             <div className="space-y-3">
               {activeSolution.features.map((feature, index) => (
