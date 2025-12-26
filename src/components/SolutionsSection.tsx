@@ -2,6 +2,7 @@ import { useState } from "react";
 import { GraduationCap, Code, Wheat, Brain, Briefcase, ArrowRight, MessageSquare, BarChart3, Users, MapPin, Shield, Cloud, Palette, Cog, Target, Layers, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import logoCanopy from "@/assets/logo-canopy.ico";
 
 const SolutionsSection = () => {
   const [activeTab, setActiveTab] = useState(0);
@@ -18,8 +19,8 @@ const SolutionsSection = () => {
       ],
       stats: { value: "220K+", label: "Utilisateurs actifs" },
       links: [
-        { label: "PFOS Educareers", url: "https://educareers.pfos.education/" },
-        { label: "CRM PFOS", url: "https://crm.pfos.education" },
+        { label: "PFOS Educareers", url: "https://educareers.pfos.education/", logo: "/lovable-uploads/652f66cd-5f54-4aac-8ddf-ded0203c9571.png" },
+        { label: "CRM PFOS", url: "https://crm.pfos.education", logo: "/lovable-uploads/652f66cd-5f54-4aac-8ddf-ded0203c9571.png" },
       ]
     },
     {
@@ -33,7 +34,7 @@ const SolutionsSection = () => {
       ],
       stats: { value: "10+", label: "Modules cloud actifs" },
       links: [
-        { label: "Canopé", url: "https://canopyx.gaiasarl.com/" },
+        { label: "Deep Canopy X", url: "https://canopyx.gaiasarl.com/", logo: logoCanopy },
       ]
     },
     {
@@ -112,7 +113,8 @@ const SolutionsSection = () => {
                 <div className="flex flex-wrap gap-3">
                   {activeSolution.links.map((link, index) => (
                     <a key={index} href={link.url} target="_blank" rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:bg-primary/90 transition-colors">
+                      className="inline-flex items-center gap-3 px-4 py-2.5 rounded-lg bg-primary text-primary-foreground font-medium text-sm hover:bg-primary/90 transition-colors">
+                      <img src={link.logo} alt={link.label} className="w-5 h-5 rounded object-contain" />
                       {link.label} <ExternalLink className="w-4 h-4" />
                     </a>
                   ))}
