@@ -19,7 +19,7 @@ const SolutionsSection = () => {
       ],
       stats: { value: "220K+", label: "Utilisateurs actifs" },
       links: [
-        { label: "PFOS Educareers", url: "https://educareers.pfos.education/", logo: "/lovable-uploads/652f66cd-5f54-4aac-8ddf-ded0203c9571.png" },
+        { label: "PFOS Educareers", url: "https://app.pfos.education/", logo: "/lovable-uploads/652f66cd-5f54-4aac-8ddf-ded0203c9571.png" },
         { label: "CRM PFOS", url: "https://crm.pfos.education", logo: "/lovable-uploads/652f66cd-5f54-4aac-8ddf-ded0203c9571.png" },
       ]
     },
