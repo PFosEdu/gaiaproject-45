@@ -16,7 +16,7 @@ const FlagshipProjectsSection = () => {
       tagline: "Plateforme d'Orientation et de Formation Scolaire",
       icon: GraduationCap,
       screenshot: screenshotPfos,
-      url: "https://educareers.pfos.education/",
+      url: "https://app.pfos.education/",
       crmUrl: "https://crm.pfos.education",
       description: "Un écosystème numérique complet dédié à l'orientation scolaire et professionnelle, intégrant des outils d'évaluation, un CRM éducatif puissant et des campagnes d'acquisition multi-canales.",
       features: [
